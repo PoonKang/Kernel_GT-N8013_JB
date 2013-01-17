@@ -83,7 +83,7 @@ struct check_device_op {
 };
 
 #ifdef CONFIG_MACH_MIDAS
-unsigned int log_en = 1;
+unsigned int log_en = 0;
 #else
 unsigned int log_en;
 #endif
@@ -782,7 +782,7 @@ static struct cpuidle_state exynos4_cpuidle_set[] = {
 	[0] = {
 		.enter			= exynos4_enter_idle,
 		.exit_latency		= 1,
-		.target_residency	= 10000,
+		.target_residency	= 5,
 		.flags			= CPUIDLE_FLAG_TIME_VALID,
 		.name			= "IDLE",
 		.desc			= "ARM clock gating(WFI)",
@@ -791,7 +791,7 @@ static struct cpuidle_state exynos4_cpuidle_set[] = {
 	[1] = {
 		.enter			= exynos4_enter_lowpower,
 		.exit_latency		= 300,
-		.target_residency	= 10000,
+		.target_residency	= 1000,
 		.flags			= CPUIDLE_FLAG_TIME_VALID,
 		.name			= "LOW_POWER",
 		.desc			= "ARM power down",
