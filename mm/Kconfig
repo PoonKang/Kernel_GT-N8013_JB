@@ -423,6 +423,13 @@ config CMA_BEST_FIT
 	  allocates area from the smallest hole that is big enough for
 	  allocation in question.
 
+config VM_MAX_READAHEAD
+	int "Allow configurable VM_MAX_READAHEAD"
+        default 128
+	help
+	  This allows us to override the default MAX_READAHEAD via build
+          scripts and/or defconfig.
+
 config DEBUG_VMALLOC
 	bool "Enable VMALLOC debugging support"
 	help
