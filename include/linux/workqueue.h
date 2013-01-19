@@ -347,6 +347,8 @@ alloc_ordered_workqueue(const char *name, unsigned int flags)
 	alloc_workqueue((name), WQ_FREEZABLE | WQ_UNBOUND | WQ_MEM_RECLAIM, 1)
 #define create_singlethread_workqueue(name)			\
 	alloc_workqueue((name), WQ_UNBOUND | WQ_MEM_RECLAIM, 1)
+#define create_rt_workqueue(name)					\
+	alloc_workqueue((name), WQ_MAX_UNBOUND_PER_CPU | WQ_MEM_RECLAIM, 1)
 
 extern void destroy_workqueue(struct workqueue_struct *wq);
 
