@@ -344,6 +344,12 @@ config CPU_FREQ_GOV_LULZACTIVE
 
 	  If in doubt, say N.
 
+config CPU_FREQ_GOV_LULZACTIVEv2
+        tristate "'lulzactivev2' cpufreq governor"
+        depends on CPU_FREQ
+        help
+          'lulzactivev2' - hotplug mechanism added in lulzactive
+
 config CPU_FREQ_MIN_TICKS
 	int "Ticks between governor polling interval."
 	default 10
