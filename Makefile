@@ -347,11 +347,12 @@ CHECK		= sparse
 
 CHECKFLAGS     := -D__linux__ -Dlinux -D__STDC__ -Dunix -D__unix__ \
 		  -Wbitwise -Wno-return-void $(CF)
-CFLAGS_MODULE   =
-AFLAGS_MODULE   =
+EXTRAFLAGS  = -DMODULE -fgcse-lm -fgcse-sm -fsched-spec-load -fforce-addr -ffast-math -fsingle-precision-constant -mtune=cortex-a15 -marm -march=armv7-a -mfpu=neon -funroll-loops
+CFLAGS_MODULE   = $(EXTRAFLAGS)
+AFLAGS_MODULE   = $(EXTRAFLAGS)
 LDFLAGS_MODULE  =
-CFLAGS_KERNEL	=
-AFLAGS_KERNEL	=
+CFLAGS_KERNEL  = -fgcse-lm -fgcse-sm -fsched-spec-load -fforce-addr -ffast-math -fsingle-precision-constant -mtune=cortex-a15 -marm -march=armv7-a -mfpu=neon -funroll-loops
+AFLAGS_KERNEL	= $(EXTRAFLAGS)
 CFLAGS_GCOV	= -fprofile-arcs -ftest-coverage
 XX_A9		= -marm -mtune=cortex-a9 -mfpu=neon -march=armv7-a
 XX_GRAPHITE	= -fgraphite-identity -floop-block -ftree-loop-linear \
